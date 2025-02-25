@@ -4,64 +4,74 @@ const theme = extendTheme({
   colors: {
     brand: {
       purple: '#B14EFF',
-      cream: '#FFFBF5',
       coral: '#FF6270',
       peach: '#FFA18F',
       yellow: '#FFDB3B',
       blue: '#3BADFF',
-      dark: '#1A1A1A',
-      gray: '#F7F9FC',
-      lightPurple: 'rgba(177, 78, 255, 0.1)'
+      cream: '#FFFBF5'
     }
   },
   fonts: {
-    heading: '"Familjen Grotesk", sans-serif',
-    body: '"Familjen Grotesk", sans-serif',
+    heading: 'Familjen Grotesk, sans-serif',
+    body: 'Familjen Grotesk, sans-serif'
   },
   components: {
     Button: {
       baseStyle: {
-        fontWeight: '600',
-        borderRadius: 'full',
+        fontWeight: '500',
+        borderRadius: 'full'
       },
       variants: {
         solid: {
           bg: 'brand.purple',
           color: 'white',
-          _hover: { bg: 'brand.blue' },
-          _active: { bg: 'brand.blue' }
+          _hover: {
+            bg: 'brand.purple',
+            opacity: 0.9
+          }
         },
         outline: {
           borderColor: 'brand.purple',
           color: 'brand.purple',
-          _hover: { bg: 'brand.lightPurple' }
+          _hover: {
+            bg: 'rgba(177, 78, 255, 0.1)'
+          }
         }
       }
     },
     Card: {
       baseStyle: {
-        bg: 'white',
-        borderRadius: '2xl',
-        overflow: 'hidden',
-        transition: 'all 0.2s',
-        _hover: {
-          transform: 'translateY(-5px)',
-          boxShadow: 'lg'
+        container: {
+          bg: 'white',
+          borderRadius: 'xl',
+          boxShadow: 'sm',
+          overflow: 'hidden',
+          transition: 'all 0.2s',
+          _hover: {
+            boxShadow: 'md',
+            transform: 'translateY(-2px)'
+          }
+        }
+      }
+    },
+    Input: {
+      variants: {
+        outline: {
+          field: {
+            borderRadius: 'full',
+            borderColor: 'gray.200',
+            _focus: {
+              borderColor: 'brand.purple',
+              boxShadow: '0 0 0 1px var(--chakra-colors-brand-purple)'
+            }
+          }
         }
       }
     },
     Tag: {
       baseStyle: {
         container: {
-          fontWeight: '500',
-        }
-      },
-      variants: {
-        subtle: {
-          container: {
-            bg: 'brand.lightPurple',
-            color: 'brand.purple'
-          }
+          borderRadius: 'full'
         }
       }
     }
@@ -69,8 +79,8 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: 'brand.gray',
-        color: 'brand.dark',
+        bg: 'gray.50',
+        color: 'gray.800'
       }
     }
   }
